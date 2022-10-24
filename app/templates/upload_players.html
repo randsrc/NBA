@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="alert alert-primary" role="alert" style="width: 40rem;">
+Download our <a href="/app/static/downloads/upload_templates.zip" class="alert-link">CSV template</a> to create your own import file.
+</div>
+
+
+<form method = 'POST' action="/players/import/upload_file" enctype="multipart/form-data"/>
+<p>Upload the csv file here...</p>
+<div class="input-group mb-3">
+<input class="form-control" type="file" name="file" accept=".csv">
+</div>
+<div class="input-group mb-4">
+<input type="submit" class="btn btn-primary" value="Import">
+<input type="submit" class="btn btn-light" value="Cancel">
+</div>
+</form>
+
+{% endblock %}

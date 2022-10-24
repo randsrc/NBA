@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block content %}
+
+<a href="/players/import">Import Players</a>
+ <table id="data" class="table table-striped">
+   <thead>
+     <tr>
+       <th>First Name</th>
+       <th>Last Name</th>
+       <th>Height</th>
+       <th>Weight</th>
+       <th>ThreePoint %</th>
+       <th>FreeThrow %</th>
+       <th>Average Score</th>
+     </tr>
+   </thead>
+   <tbody>
+   </tbody>
+ </table>
+
+
+    {% endblock %}
+  {% block script %}
+ <script>
+   $(document).ready(function () {
+     $('#data').DataTable({
+       ajax: '/api/players',
+       pageLength: 25,
+       columns: [
+         {data: 'first'},
+         {data: 'last'},
+         {data: 'height'},
+         {data: 'weight'},
+         {data: 'threepoint'},
+         {data: 'freethrow'},
+         {data: 'avgscore'}
+       ],
+     });
+   });
+
+ </script>
+   {% endblock %}
