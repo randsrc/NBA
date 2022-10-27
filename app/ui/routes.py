@@ -21,17 +21,18 @@ def players_list():
         last = request.form.get('last')
         height = request.form.get('height')
         weight = request.form.get('weight')
-        threepoint = request.form.get('threepoint')
-        freethrow = request.form.get('freethrow')
+        #freethrow = request.form.get('freethrow')
         avgscore = request.form.get('avgscore')
+        field = request.form.get('field')
+        threepoint = request.form.get('threepoint')
         player1 = Player(
             first=first,
             last=last,
             height=height,
             weight=weight,
-            threepoint=threepoint,
-            freethrow=freethrow,
-            avgscore=avgscore
+            avgscore=avgscore,
+            field=field,
+            threepoint=threepoint
         )
         db.session.add(player1)
         db.session.commit()
@@ -68,9 +69,10 @@ def parse_csv_players(file_path):
             last=row['Last'],
             height=row['Height'],
             weight=row['Weight'],
-            threepoint=row['ThreePoint'],
-            freethrow=row['FreeThrow'],
+            #freethrow=row['FreeThrow'],
             avgscore=row['AvgScore'],
+            field=row['Field'],
+            threepoint=row['ThreePoint'],
         )
         db.session.add(player)
     db.session.commit()
