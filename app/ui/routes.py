@@ -16,24 +16,25 @@ def home():
 
 @ui_bp.route('/players', methods=['GET', 'POST'])
 def players_list():
-    first = request.form.get('first')
-    last = request.form.get('last')
-    height = request.form.get('height')
-    weight = request.form.get('weight')
-    threepoint = request.form.get('threepoint')
-    freethrow = request.form.get('freethrow')
-    avgscore = request.form.get('avgscore')
-    player1 = Player(
-        first=first,
-        last=last,
-        height=height,
-        weight=weight,
-        threepoint=threepoint,
-        freethrow=freethrow,
-        avgscore=avgscore
-    )
-    db.session.add(player1)
-    db.session.commit()
+    if request.method == 'POST':
+        first = request.form.get('first')
+        last = request.form.get('last')
+        height = request.form.get('height')
+        weight = request.form.get('weight')
+        threepoint = request.form.get('threepoint')
+        freethrow = request.form.get('freethrow')
+        avgscore = request.form.get('avgscore')
+        player1 = Player(
+            first=first,
+            last=last,
+            height=height,
+            weight=weight,
+            threepoint=threepoint,
+            freethrow=freethrow,
+            avgscore=avgscore
+        )
+        db.session.add(player1)
+        db.session.commit()
     return render_template('players.html', players=players)
 
 
