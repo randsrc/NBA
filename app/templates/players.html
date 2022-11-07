@@ -5,13 +5,12 @@
  <table id="data" class="table table-striped">
    <thead>
      <tr>
-       <th>First Name</th>
-       <th>Last Name</th>
+       <th>Name</th>
        <th>Height</th>
        <th>Weight</th>
        <th>Average Score</th>
-       <th>Field %</th>
-       <th>ThreePoint</th>
+       <th>True Shot %</th>
+       <th>Assists</th>
      </tr>
    </thead>
    <tbody>
@@ -27,13 +26,12 @@
        ajax: '/api/players',
        pageLength: 25,
        columns: [
-         {data: 'first'},
-         {data: 'last'},
+         {data: 'name'},
          {data: 'height'},
          {data: 'weight'},
          {data: 'avgscore'},
-         {data: 'field'},
-         {data: 'threepoint'}
+         {data: 'tsp'},
+         {data: 'assists'}
        ],
      });
    });

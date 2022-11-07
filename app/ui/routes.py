@@ -17,21 +17,19 @@ def home():
 @ui_bp.route('/players', methods=['GET', 'POST'])
 def players_list():
     if request.method == 'POST':
-        first = request.form.get('first')
-        last = request.form.get('last')
+        name = request.form.get('name')
         height = request.form.get('height')
         weight = request.form.get('weight')
         #freethrow = request.form.get('freethrow')
         avgscore = request.form.get('avgscore')
-        field = request.form.get('field')
+        tsp = request.form.get('tsp')
         threepoint = request.form.get('threepoint')
         player1 = Player(
-            first=first,
-            last=last,
+            name=name,
             height=height,
             weight=weight,
             avgscore=avgscore,
-            field=field,
+            tsp=tsp,
             threepoint=threepoint
         )
         db.session.add(player1)
@@ -65,14 +63,13 @@ def parse_csv_players(file_path):
     # Loop through the rows and create a Student object for each row
     for i, row in csv_data.iterrows():
         player = Player(
-            first=row['First'],
-            last=row['Last'],
+            name=row['Name'],
             height=row['Height'],
             weight=row['Weight'],
             #freethrow=row['FreeThrow'],
             avgscore=row['AvgScore'],
-            field=row['Field'],
-            threepoint=row['ThreePoint'],
+            tsp=row['TSP'],
+            assists=row['Assists'],
         )
         db.session.add(player)
     db.session.commit()
@@ -81,3 +78,21 @@ def parse_csv_players(file_path):
 @ui_bp.route('/api/players')
 def players():
     return {'data': [player.to_dict() for player in Player.query]}
+
+
+@ui_bp.route("/select_player")
+def select_player():
+    dropdown_list = ['Air', 'Land', 'Sea']
+    player_list = [r.name for r in db.session.query(Player.name)]
+    average_score = [r.avgscore for r in db.session.query(Player.avgscore)]
+    return render_template('select_player.html', dropdown_list=player_list, average_score=average_score)
+
+
+@ui_bp.route("/game")
+def game():
+    p1_name = request.args.get("p1")
+    p2_name = request.args.get("p2")
+    p1 = Player.query.filter_by(name=p1_name).first()
+    p2 = Player.query.filter_by(name=p2_name).first()
+    return render_template("game.html", p1=p1, p2=p2)
+

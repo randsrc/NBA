@@ -9,12 +9,8 @@
 <form action="/players" method="POST" style="padding:30px">
   <div class="row g-3" style="margin-bottom:15px">
     <div class="input-group mb-3 col-sm">
-        <input type="text" class="form-control" name="first" placeholder="First Name" aria-label="First Name">
+        <input type="text" class="form-control" name="name" placeholder="Name" aria-label="name">
     </div>
-    <div class="input-group mb-3 col-sm">
-        <input type="text" class="form-control" name="last" placeholder="Last Name" aria-label="Last Name">
-    </div>
-  </div>
 
     <div class="input-group mb-3 col-sm">
       <input type="text" class="form-control" placeholder="height" name="height" aria-label="height" aria-describedby="basic-addon2">
@@ -27,18 +23,18 @@
     </div>
     <div class="row g-2">
       <div class="col">
-        <input type="text" class="form-control" placeholder="Average" name="average" aria-label="average">
+        <input type="text" class="form-control" placeholder="Average" name="avgscore" aria-label="average">
 
       </div>
       <div class="col">
-        <input type="text" class="form-control" placeholder="Field" name="field" aria-label="Field Goals">
+        <input type="text" class="form-control" placeholder="TSP" name="tsp" aria-label="True Shot %">
       </div>
       <div class="col">
-        <input type="text" class="form-control" placeholder="Three" name="threepoint" aria-label="threes">
+        <input type="text" class="form-control" placeholder="Assists" name="assists" aria-label="assists">
       </div>
     </div>
    <div class="col" style="margin-top:15px; text-align:center">
-      <button class="btn btn-primary" type="submit">Submit form</button>
+      <button class="btn btn-primary" type="submit">Add Player!</button>
     </div>
   </div>
 </form>
