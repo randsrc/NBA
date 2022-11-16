@@ -6,19 +6,18 @@
     <meta charset="UTF-8">
     <title>Home</title>
 </head>
-<body>
 <div class="container">
+    <form id="players" action="/game" method="POST">
         <div class="row">
             <div class="col-lg-6 mb-4">
                 <div class="card" style="width: 18rem;">
                     <img class="card-img-top" src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__480.png" alt="">
                     <div class="card-body">
-                      <select>
-{% for each in dropdown_list %}
-  <option value="{{each}}">{{each}}</option>
-{% endfor %}
-</select>
-                        <input type="hidden" id="custId" name="custId" value="3487">
+                        <select name="p1">
+                            {% for each in dropdown_list %}
+                            <option value="{{each}}">{{each}}</option>
+                            {% endfor %}
+                        </select>
                         <p class="card-text">
                             Some quick example text to build on
                             the card title and make up the bulk
@@ -38,12 +37,11 @@
                     <img class="card-img-top" src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__480.png" alt="">
 
                     <div class="card-body">
-                      <select id="playersDropDown">
-{% for each in dropdown_list %}
-  <option value="{{each}}">{{each}}</option>
-{% endfor %}
-</select>
-
+                        <select name="p2">
+                            {% for each in dropdown_list %}
+                            <option value="{{each}}">{{each}}</option>
+                            {% endfor %}
+                        </select>
                         <p class="card-text">
                             Some quick example text to build on the
                             card title and make up the bulk of the
@@ -59,8 +57,9 @@
                 </div>
             </div>
         </div>
-    </div>
-</body>
+        </div>
+        <input type="submit">
+    </form>
 </html>
 
 {% endblock %}

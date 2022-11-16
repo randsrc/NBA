@@ -80,18 +80,17 @@ def players():
     return {'data': [player.to_dict() for player in Player.query]}
 
 
-@ui_bp.route("/select_player")
+@ui_bp.route("/select_player", methods=['GET', 'POST'])
 def select_player():
-    dropdown_list = ['Air', 'Land', 'Sea']
     player_list = [r.name for r in db.session.query(Player.name)]
-    average_score = [r.avgscore for r in db.session.query(Player.avgscore)]
-    return render_template('select_player.html', dropdown_list=player_list, average_score=average_score)
+    return render_template('select_player.html', dropdown_list=player_list,)
 
 
-@ui_bp.route("/game")
+@ui_bp.route("/game", methods=['GET', 'POST'])
 def game():
-    p1_name = request.args.get("p1")
-    p2_name = request.args.get("p2")
+    p1_name = request.form["p1"]
+    p2_name = request.form["p2"]
+    print(p1_name)
     p1 = Player.query.filter_by(name=p1_name).first()
     p2 = Player.query.filter_by(name=p2_name).first()
     return render_template("game.html", p1=p1, p2=p2)
