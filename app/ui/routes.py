@@ -23,14 +23,14 @@ def players_list():
         #freethrow = request.form.get('freethrow')
         avgscore = request.form.get('avgscore')
         tsp = request.form.get('tsp')
-        threepoint = request.form.get('threepoint')
+        assists = request.form.get('assists')
         player1 = Player(
             name=name,
             height=height,
             weight=weight,
             avgscore=avgscore,
             tsp=tsp,
-            threepoint=threepoint
+            assists=assists
         )
         db.session.add(player1)
         db.session.commit()
