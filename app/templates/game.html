@@ -1,7 +1,53 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h1>{{ p1.name }}</h1>
-<h1>{{ p2.name }}</h1>
+
+<div class="container">
+    <div class="row">
+<div class="col-lg-6 mb-4">
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__480.png" alt="">
+                    <div class="card-body">
+                        <p class="card-text">
+                        <h5>Player 1: {{ p1.name }}</h5>
+                        <h6>Height: {{ p1.height }} cm</h6>
+                        <h6>Weight: {{ p1.weight }} kg</h6>
+                        <h6>Average Score: {{ p1.avgscore }}</h6>
+                        <h6>True Shot %: {{ p1.tsp }}</h6>
+                        <h6>Assists: {{ p1.assists }}</h6>
+                        </p>
+
+                        <a href="#" class="btn btn-outline-primary btn-sm">
+                            Card link
+                        </a>
+                        <a href="#" class="btn btn-outline-secondary btn-sm">
+                            <i class="far fa-heart"></i></a>
+                    </div>
+                </div>
+</div>
+<div class="col-lg-6 mb-4">
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__480.png" alt="">
+                    <div class="card-body">
+                        <p class="card-text">
+                        <h5>Player 2: {{ p2.name }}</h5>
+                        <h6>Height: {{ p2.height }} cm</h6>
+                        <h6>Weight: {{ p2.weight }} kg</h6>
+                        <h6>Average Score: {{ p2.avgscore }}</h6>
+                        <h6>True Shot %: {{ p2.tsp }}</h6>
+                        <h6>Assists: {{ p2.assists }}</h6>
+                        </p>
+
+                        <a href="#" class="btn btn-outline-primary btn-sm">
+                            Card link
+                        </a>
+                        <a href="#" class="btn btn-outline-secondary btn-sm">
+                            <i class="far fa-heart"></i></a>
+                    </div>
+                </div>
+</div>
+</div>
+</div>
+
 
 {% endblock %}
