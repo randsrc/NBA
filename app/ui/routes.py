@@ -20,7 +20,6 @@ def players_list():
         name = request.form.get('name')
         height = request.form.get('height')
         weight = request.form.get('weight')
-        #freethrow = request.form.get('freethrow')
         avgscore = request.form.get('avgscore')
         tsp = request.form.get('tsp')
         assists = request.form.get('assists')
@@ -66,7 +65,6 @@ def parse_csv_players(file_path):
             name=row['Name'],
             height=row['Height'],
             weight=row['Weight'],
-            #freethrow=row['FreeThrow'],
             avgscore=row['AvgScore'],
             tsp=row['TSP'],
             assists=row['Assists'],
@@ -93,5 +91,23 @@ def game():
     print(p1_name)
     p1 = Player.query.filter_by(name=p1_name).first()
     p2 = Player.query.filter_by(name=p2_name).first()
-    return render_template("game.html", p1=p1, p2=p2)
+    Player_1 = p1.name
+    p1_height = float(p1.height)
+    p1_weight = float(p1.weight)
+    p1_avgscore = float(p1.avgscore)
+    p1_tsp = float(p1.tsp)
+    p1_assists = float(p1.assists)
+    Player_2 = p2.name
+    p2_height = float(p2.height)
+    p2_weight = float(p2.weight)
+    p2_avgscore = float(p2.avgscore)
+    p2_tsp = float(p2.tsp)
+    p2_assists = float(p2.assists)
+    print(p2_assists)
+    print(p2_weight)
+
+    return render_template("game.html", p1=p1, p2=p2, Player_1=Player_1, p1_height=p1_height, p1_weight=p1_weight,
+                           p1_avgscore=p1_avgscore, p1_tsp=p1_tsp, p1_assists=p1_assists,
+                           Player_2=Player_2, p2_height=p2_height, p2_weight=p2_weight,
+                           p2_avgscore=p2_avgscore, p2_tsp=p2_tsp, p2_assists=p2_assists)
 

@@ -9,10 +9,10 @@ class Player(db.Model):
     name = db.Column(db.Text(), nullable=False)
     height = db.Column(db.Float(), nullable=False)
     weight = db.Column(db.Float(), nullable=False)
-    #freethrow = db.Column(db.Float(5), nullable=False)
     avgscore = db.Column(db.Float(5), nullable=False)
     tsp = db.Column(db.Float(5), nullable=False)
     assists = db.Column(db.Float(5), nullable=False)
+
     def to_dict(self):
         return{
             'name': self.name,
@@ -21,5 +21,4 @@ class Player(db.Model):
             'avgscore': self.avgscore,
             'tsp': self.tsp,
             'assists': self.assists,
-           #'freethrow': self.freethrow,
         }
