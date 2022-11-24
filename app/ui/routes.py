@@ -88,7 +88,6 @@ def select_player():
 def game():
     p1_name = request.form["p1"]
     p2_name = request.form["p2"]
-    print(p1_name)
     p1 = Player.query.filter_by(name=p1_name).first()
     p2 = Player.query.filter_by(name=p2_name).first()
     Player_1 = p1.name
@@ -103,8 +102,6 @@ def game():
     p2_avgscore = float(p2.avgscore)
     p2_tsp = float(p2.tsp)
     p2_assists = float(p2.assists)
-    print(p2_assists)
-    print(p2_weight)
 
     return render_template("game.html", p1=p1, p2=p2, Player_1=Player_1, p1_height=p1_height, p1_weight=p1_weight,
                            p1_avgscore=p1_avgscore, p1_tsp=p1_tsp, p1_assists=p1_assists,
