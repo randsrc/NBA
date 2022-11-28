@@ -1,10 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div class="alert alert-primary" role="alert" style="width: 40rem;">
-Download our <a href="/app/static/downloads/upload_templates.zip" class="alert-link">CSV template</a> to create your own import file.
-</div>
-
 
 <form method = 'POST' action="/players/import/upload_file" enctype="multipart/form-data"/>
 <p>Upload the csv file here...</p>
